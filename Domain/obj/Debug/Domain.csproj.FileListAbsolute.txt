@@ -1,0 +1,37 @@
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Domain\bin\Debug\Domain.dll.config
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Domain\bin\Debug\Domain.dll
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Domain\bin\Debug\Domain.pdb
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Domain\bin\Debug\EntityFramework.dll
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Domain\bin\Debug\Newtonsoft.Json.dll
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Domain\bin\Debug\EntityFramework.xml
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Domain\bin\Debug\Newtonsoft.Json.xml
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Domain\obj\Debug\Domain.dll
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Domain\obj\Debug\Domain.pdb
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Domain\bin\Debug\Domain.dll.config
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Domain\bin\Debug\Domain.dll
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Domain\bin\Debug\Domain.pdb
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Domain\bin\Debug\EntityFramework.dll
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Domain\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Domain\bin\Debug\EntityFramework.xml
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Domain\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Domain\obj\Debug\Domain.csprojResolveAssemblyReference.cache
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Domain\obj\Debug\Domain.dll
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Domain\obj\Debug\Domain.pdb
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Domain\bin\Debug\Domain.dll
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Domain\bin\Debug\Domain.pdb
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Domain\bin\Debug\EntityFramework.dll
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Domain\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Domain\bin\Debug\Newtonsoft.Json.dll
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Domain\bin\Debug\EntityFramework.xml
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Domain\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Domain\bin\Debug\Newtonsoft.Json.xml
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Domain\obj\Debug\Domain.csprojAssemblyReference.cache
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Domain\obj\Debug\Domain.csproj.CoreCompileInputs.cache
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Domain\obj\Debug\Domain.csproj.CopyComplete
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Domain\obj\Debug\Domain.dll
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Domain\obj\Debug\Domain.pdb
