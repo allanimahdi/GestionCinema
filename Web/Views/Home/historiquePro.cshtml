@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Domain.Entity.Reservation>
+
+
+@{
+   
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row pricing">
+        <div class="col-md-8">
+            <h3 class="m_2">historique reservation projection film</h3>
+            <div class="classes">
+                <div class="cardio_list">
+
+                    @for (int i = 0; i < Model.Count() / 2; i++)
+                    {
+                        <div class="cardio_sublist">
+                            <ul class="cardio">
+                                <li><i class="clock"> </i><span>@Html.DisplayFor(modelItem => Model.ElementAt(i).Projection.Film.FilmTitle)</span></li>
+                               
+                            </ul>
+                            <div class="social-media">
+                                <ul>
+                                    <li> <span class="simptip-position-bottom simptip-movable" data-tooltip="timetable"><a href="#" target="_blank"> </a></span></li>
+                                    <li>@Html.DisplayFor(modelItem => Model.ElementAt(i).Projection.DateProjection)</li>
+                                    <a href="/Home/DeleteReservationProjection/@Model.ElementAt(i).ReservationId" url="" data-toggle="modal" data-target="#Modalproj" class="del-his-proj btn btn-danger">&times;</a>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    }
+
+                </div>
+                <div class="cardio_list1">
+
+                    @for (int i = Model.Count() / 2; i < Model.Count(); i++)
+                    {
+                        <div class="cardio_sublist">
+                            <ul class="cardio">
+                                <li><i class="clock"> </i><span>@Html.DisplayFor(modelItem => Model.ElementAt(i).Projection.Film.FilmTitle)</span></li>
+                            </ul>
+                            <div class="social-media">
+                                <ul>
+                                    <li> <span class="simptip-position-bottom simptip-movable" data-tooltip="timetable"><a href="#" target="_blank"> </a></span></li>
+                                    <li>@Html.DisplayFor(modelItem => Model.ElementAt(i).Projection.DateProjection)</li>
+                                    <a href="/Home/DeleteReservationProjection/@Model.ElementAt(i).ReservationId" class="del-his-proj btn btn-danger">&times;</a>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+
+                    }
+
+
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+
+        <div class="clear"></div>
+    </div>
+</div>
+<div class="modal fade danger" id="Modalproj" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div id="del-his-proj" class="modal-body">
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,118 @@
+﻿@model List<dynamic>
+@{
+    ViewBag.Title = "StatEvent";
+    Layout = "~/Views/Shared/_LayoutBackOffice.cshtml";
+}
+
+<h2>StatEvent</h2>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
+        <div class="pull-right">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                    Actions
+                    <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu pull-right" role="menu">
+                    <li>
+                        <a href="#">Action</a>
+                    </li>
+                    <li>
+                        <a href="#">Another action</a>
+                    </li>
+                    <li>
+                        <a href="#">Something else here</a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#">Separated link</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-4">
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Etat</th>
+                                <th>Titre</th>
+                                <th>Adress</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr class="tr_event" data="@Json.Encode(item)">
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            }
+                          
+                        </tbody>
+                    </table>
+                </div>
+                <!-- /.table-responsive -->
+            </div>
+            <!-- /.col-lg-4 (nested) -->
+            <div class="col-lg-8">
+                <div id="bar-example" data="@Json.Encode(Model)"></div>
+            </div>
+            <!-- /.col-lg-8 (nested) -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.panel-body -->
+</div>
+<!-- /.panel -->
+<script>
+
+    $(".tr_event").each(function (index,element) {
+        var item = JSON.parse($(element)[0].attributes["data"].nodeValue);
+       
+        $(element).children("td").each(function (i, e) {
+            switch (i) {
+                case 0:
+                    $(e).text(item.id);
+                    break;
+                case 1:
+                    $(e).text(item.et);
+                    break;
+                case 2:
+                    $(e).text(item.tt);
+                    break;
+                case 3:
+                    $(e).text(item.adr);
+                    break;
+                default:
+                    break;
+            }
+        });
+        
+    });
+   
+
+
+
+
+    var elem = "bar-example";
+    var data = JSON.parse($("#" + elem)[0].attributes["data"].nodeValue);
+    console.log(data);
+    Morris.Bar({
+        element: elem,
+        data:data,
+        xkey: 'tt',
+        ykeys: ['cap', 'part'],
+        labels: ['Capacité', 'Participations']
+    });
+
+</script>

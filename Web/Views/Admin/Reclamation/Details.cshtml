@@ -1,0 +1,51 @@
+﻿@model Domain.Entity.Reclamation
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutBackOffice.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reclamation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sujet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sujet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.état)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.état)
+        </dd>
+
+    </dl>
+</div>
+<p>
+ 
+    @Html.ActionLink("Back to List", "Index")
+</p>

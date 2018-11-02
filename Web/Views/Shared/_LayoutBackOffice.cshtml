@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+  
+    <title>Cinema Dashboard</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Admin/css")
+    @Styles.Render("~/DataTable/css")
+    @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/Admin")
+   
+
+  
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<body>
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav  class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+            <div class="navbar-header" style="position:fixed">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Cinéma Plus Client", "Index", "Home",null, new { @class = "navbar-brand" })
+                
+            </div>
+            <!-- /.navbar-header -->
+
+            <ul id="TopNavPartial" class="nav navbar-top-links navbar-right"  >
+               @Html.Partial("Partials/TopNavBar/_MessagePartial")
+               @Html.Partial("Partials/TopNavBar/_TaskPartial")
+               @Html.Partial("Partials/TopNavBar/_AlertPartial")
+               @Html.Partial("Partials/TopNavBar/_LoginPartial")
+            </ul>
+            <!-- /.navbar-top-links -->
+        
+            @Html.Partial("Partials/SideNavBar/_NavbarStaticSidePartial")
+            <!-- /.navbar-static-side -->
+        </nav>
+
+        <div id="page-wrapper" class="page-content">
+
+            @RenderBody()
+
+        <!-- /#page-wrapper -->
+
+    </div>
+
+   
+    @Scripts.Render("~/bundles/DataTable")
+    @RenderSection("scripts", required: false)
+    <script>
+        //data-table index admin
+    $(document).ready(function() {
+        $('#dataTables-film').DataTable({
+            responsive: true
+        });
+        $('#dataTables-acteur').DataTable({
+            responsive: true
+        });
+        $('#dataTables-projection').DataTable({
+            responsive: true
+        });
+        $('#dataTables-event').DataTable({
+            responsive: true
+        });
+        
+        $('#dataTables-participation').DataTable({
+            responsive: true
+        });
+        $('#dataTables-user').DataTable({
+            responsive: true
+        });
+        $('#dataTables-reclamation').DataTable({
+            responsive: true
+        });
+    });
+        //------------------
+        //modale film details
+    $(".closeInfo").on("click", function () {
+        $(this).parentsUntil(".panel").slideUp();
+    });
+    $(".redirect-url").val(location.href);
+    $(".del-file").on("click", function () {
+        var FilmId = $(this)[0].id;
+        $("#FileId").val(FilmId);
+        $("#ConfirmImage").attr("src", "/File?id=" + FilmId);
+    });
+    $(".del-film").on("click", function () {
+        console.log("delclicked");
+        console.log($(this));
+        var FilmId = $(this)[0].attributes["film-id"].nodeValue;
+        var ImageId = $(this)[0].attributes["image-id"].nodeValue;
+        var FilmTitle = $(this)[0].attributes["film-title"].nodeValue;
+        $("#FilmId").val(FilmId);
+        $("#FilmTitle").text(FilmTitle);
+        $("#ConfirmImage").attr("src", "/File?id=" + ImageId);
+    });
+    $(".del-cat").on("click", function () {
+        var url = $(this)[0].attributes["url"].nodeValue;
+        $("#del-cat").load(url);   
+    });
+    $(".del-acteur").on("click", function () {
+        var url = $(this)[0].attributes["url"].nodeValue;
+        $("#del-acteur").load(url);
+    });
+    $(".del-event").on("click", function () {
+        var url = $(this)[0].attributes["url"].nodeValue;
+        $("#del-event").load(url);
+    });
+    $(".del-part").on("click", function () {
+        var url = $(this)[0].attributes["url"].nodeValue;
+        $("#del-part").load(url);
+    });
+    $(".del-proj").on("click", function () {
+        var url = $(this)[0].attributes["url"].nodeValue;
+        $("#del-proj").load(url);
+    });
+    $(".del-salle").on("click", function () {
+        var url = $(this)[0].attributes["url"].nodeValue;
+        $("#del-salle").load(url);
+    });
+    $(".del-user").on("click", function () {
+        var url = $(this)[0].attributes["url"].nodeValue;
+        
+        $("#del-user").load(url);
+    });
+    $(".del-reclamation").on("click", function () {
+        var url = $(this)[0].attributes["url"].nodeValue;
+      
+        $("#del-reclamation").load(url);
+    });
+    $(".rep-reclamation").on("click", function () {
+        var email = $(this)[0].attributes["email"].nodeValue;
+        var rec = $(this)[0].attributes["rec"].nodeValue;
+        $("#rep-rec").val(rec);
+        $("#rep-to").val(email);
+        $("#to").text("to : "+email);
+    });
+        //------------------
+    </script>
+</body>
+</html>

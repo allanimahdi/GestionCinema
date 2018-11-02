@@ -1,0 +1,110 @@
+﻿@model Domain.Entity.Film
+@{
+    ViewBag.Title = "CreateFilm";
+    Layout = "~/Views/Shared/_LayoutBackOffice.cshtml";
+}
+<div class="row">
+    <h2>Create Film</h2>
+    <hr />
+</div>
+<div class="row">
+    <div class="col-lg-8">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Default Panel
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("CreateFilm", "Admin", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.FilmTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.FilmTitle, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.FilmTitle, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("Image", new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <input required type="file" id="Avatar" name="upload" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.FilmDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.FilmDescription, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.FilmDescription, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.FilmNote, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.FilmNote, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.FilmNote, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="panel-footer">
+                <a href="/Admin" class="btn btn-warning btn-circle btn-group-sm">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div id="" class="panel panel-info">
+            <div class="panel-heading">
+                Information
+                <a style="float:right" href="#" id="" class="closeInfo btn btn-danger btn-circle btn-group-sm">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+            <div class="panel-body">
+             You can add mutiple images to a film on section edit
+            </div>
+            <div class="panel-footer">
+               
+            </div>
+        </div>
+        <div id="" class="panel panel-info">
+            <div class="panel-heading">
+                Information
+                <a style="float:right" href="#" id="" class="closeInfo btn btn-danger btn-circle btn-group-sm">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+            <div class="panel-body">
+                You can manage film's categories after creation on section edit
+            </div>
+            <div class="panel-footer">
+            
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+    
+
+
+
+
+

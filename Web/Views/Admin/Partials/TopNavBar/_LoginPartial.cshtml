@@ -1,0 +1,41 @@
+﻿@if (@User != null)
+{
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="fa fa-user fa-fw"></i>  <i class="fa fa-caret-down"></i>
+    </a>
+    <ul class="dropdown-menu dropdown-user">
+        <li>
+            @Html.ActionLink("Hello " + @User.FirstName + " " + @User.LastName + "!", "Index", User.roles[0])
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+        </li>
+        <li>
+            <a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
+        </li>
+        <li class="divider"></li>
+        <li>
+            
+            <a href="/Account/LogOut"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+        </li>
+    </ul>
+    <!-- /.dropdown-user -->
+</li>
+<!-- /.dropdown -->
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}
+
+
+
+
+
+
+
+

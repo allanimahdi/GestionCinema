@@ -1,0 +1,33 @@
+﻿@model List<dynamic>
+@{
+    ViewBag.Title = "StatFilm";
+    Layout = null;
+}
+
+
+
+<!-- /.panel -->
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="fa fa-bar-chart-o fa-fw"></i> Films Note
+    </div>
+    <div class="panel-body">
+        <div id="donut-example" data="@Json.Encode(Model)"></div>
+       
+    </div>
+    <!-- /.panel-body -->
+</div>
+<!-- /.panel -->
+<!-- /.panel .chat-panel -->
+
+<script>
+    var elem = "donut-example";
+    var data=JSON.parse($("#"+elem)[0].attributes["data"].nodeValue);
+    console.log(data);
+    Morris.Donut({
+        element: elem,
+        data:data
+    });
+</script>
+<hr />
+

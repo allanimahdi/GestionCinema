@@ -1,0 +1,43 @@
+﻿@model Domain.Entity.Acteur
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutBackOffice.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Acteur</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NomActeur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomActeur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrenomActeur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrenomActeur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoteActeur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoteActeur)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditActeur", new { id = Model.ActeurId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,32 @@
+﻿<div class="menu" id="menu">
+    <div class="container">
+        <div class="logo">
+            @*<a href="/Home"><img style="box-shadow:rgba(255,255,255,0.2) 0px 0px 1px 2px inset" width="100" height="50" src="~/images/logo.png" alt=""></a>*@
+        </div>
+        <div class="h_menu4">
+            <!-- start h_menu4 -->
+            <a class="toggleMenu" href="#" style="display: none;">Menu</a>
+            <ul class="nav">
+                <li id="home" class="active"><a href="/">Acceuil</a></li>
+                <li id="film" class=""><a href="/Home/Film">Film</a></li>
+                <li id="salle" class=""><a href="/Home/Salle">Salle</a></li>
+                <li id="thea" class=""><a href="/Home/Event">Event</a></li>
+                <li id="cont" class=""><a href="/Home/Contact">Contact</a></li>
+                <li id="ab" class=""><a href="/Home/About">à propos</a></li>
+            </ul>
+            @Html.Partial("Partials/_LoginPartial")
+            <script type="text/javascript" src="~/Scripts/Home/nav.js"></script>
+        </div><!-- end h_menu4 -->
+        <div class="clear"></div>
+    </div>
+</div>
+<script type="text/javascript">
+    if (sessionStorage["li-active"]) {
+        $("li.active").removeClass("active");
+        $("#" + sessionStorage["li-active"]).addClass("active");
+    }
+   
+    $(".nav li").on("click", function () {   
+         sessionStorage["li-active"] = $(this)[0].id;		    
+			});	
+</script>

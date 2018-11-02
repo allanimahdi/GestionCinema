@@ -1,0 +1,294 @@
+﻿@model Domain.Entity.Film
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_LayoutBackOffice.cshtml";
+}
+<div class="row">
+    <h2>Edit Film</h2>
+    <hr />
+</div>
+<div class="row">
+    <div class="col-lg-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+               Global Information
+            </div>
+            <div class="panel-body">
+                @using (Html.BeginForm("EditFilm", "Admin", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.FilmId)
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.FilmTitle, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.FilmTitle, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.FilmTitle, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        @if (Model.Images.Count>0 )
+                        {
+                            <div class="form-group">
+                                <span class="control-label col-md-2"><strong>Image Courante</strong></span>
+                                <div class="col-md-10">
+                                    <img width="200" height="200" src="~/File?id=@Model.Images[0].FileId" alt="avatar" />
+                                </div>
+                            </div>
+                        }
+
+                        <div class="form-group">
+                            @Html.Label("Image", new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <input  type="file" id="Image" name="upload" />
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.FilmDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.FilmDescription, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.FilmDescription, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.FilmNote, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.EditorFor(model => model.FilmNote, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.FilmNote, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Save" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <div class="panel-footer">
+                <a href="/Admin" class="btn btn-warning btn-circle btn-group-sm">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div id="" class="panel panel-default">
+            <div class="panel-heading">
+                <p style="position:absolute;">Images</p>
+                <a style="margin-left:95%;" data-toggle="modal" data-target="#Modal-CreateFile" href="#" id="" class="dialog btn btn-success btn-circle btn-group-sm">
+                    <i class="fa fa-plus-square"></i>
+                </a>
+            </div>
+            <div class="panel-body">
+                @foreach (var item in Model.Images)
+                {
+                    if (item.FileType == Domain.Entity.FileType.Photo)
+                    {
+                        <span style="display:inline-block">
+                            <a style="position:absolute" data-toggle="modal" data-target="#Modal-DeleteFile" href="#" id="@item.FileId" class="del-file btn btn-danger btn-circle btn-group-sm">
+                                <i class="fa fa-times"></i>
+                            </a>
+                            <img style="margin:2px" width="150" height="150" src="~/File?id=@item.FileId" alt="@item.FileName">
+                        </span>
+                    }
+                }
+            </div>
+            <div class="panel-footer">
+            </div>
+        </div>
+        <div id="" class="panel panel-default">
+            <div class="panel-heading">
+                <p style="position:absolute;">Categories Film</p>
+                <a style="margin-left:95%;" data-toggle="modal" data-target="#Modal-AddCategory" href="#" id="" class="dialog btn btn-success btn-circle btn-group-sm">
+                    <i class="fa fa-plus-square"></i>
+                </a>
+                
+            </div>
+            <div class="panel-body">
+                <table class="table table-striped">
+                    @foreach (var item in Model.Categories)
+                    {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CategoryName)
+                                </td>
+                                <td>
+                                    <a style="margin-left:80%" cat-name="@item.CategoryName" data-toggle="modal" data-target="#Modal-DeleteCategory" href="#" id="@item.CategoryId" class="del-cat btn btn-danger btn-circle btn-group-sm">
+                                        <i class="fa fa-times"></i>
+                                    </a>
+                                </td>
+                            </tr>                     
+                    }
+                </table>
+            </div>
+            <div class="panel-footer">
+
+            </div>
+        </div>
+    </div>
+ </div>
+
+
+
+
+<div class="modal fade" id="Modal-CreateFile" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Upload File</h4>
+            </div>
+            <div class="modal-body">
+
+                <form action="/File/UploadeImage" method="post" enctype="multipart/form-data">
+
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <input type="hidden" value="Film" name="Type" />
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" value="@Model.FilmId" name="FilmId" />
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" value="" class="redirect-url" name="RedirectUrl" />
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("Image", new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                <input type="file" id="Photo" name="Upload" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Valider" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Modal-DeleteFile" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete File</h4>
+            </div>
+            <div class="modal-body">
+                Confirm Delete !
+                <br />
+                <center> <img id="ConfirmImage" style="margin:2px" width="200" height="200" src="" alt="" /></center>
+            </div>
+            <div class="modal-footer">
+                <form action="/File/DeleteFile" method="post" enctype="multipart/form-data">
+
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <input type="hidden" value="" id="FileId" name="FileId" />
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" value="" class="redirect-url" name="RedirectUrl" />
+                        </div>
+
+
+                        <div class="form-group">
+                            <center>
+                                <input type="submit" value="Delete" class="btn btn-group-justified btn-danger" />
+                            </center>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>    
+<div class="modal fade" id="Modal-AddCategory" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Add Category</h4>
+            </div>
+            <div class="modal-body">
+                <form action="/Admin/AddFilmToCategory" method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <input type="hidden" value="@Model.FilmId" name="FilmId" />
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" value="" class="redirect-url" name="RedirectUrl" />
+                        </div>
+                        <div class="form-group">
+                            @Html.Label("Category", new { @class = "control-label col-md-2" })
+                            <div class="col-md-10">
+                                @Html.DropDownList("CategorySelect", null, htmlAttributes: new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <center>  <input type="submit" value="Add" class="btn btn-primary btn-group-justified" />  </center>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="Modal-DeleteCategory" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete Film From Category</h4>
+            </div>
+            <div class="modal-body">
+                Confirm Delete !
+                <br />
+                <center id="CategoryName"> </center>
+            </div>
+            <div class="modal-footer">
+                <form action="/Admin/DeleteFilmFromCategory" method="post">
+                    @Html.AntiForgeryToken()
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <input type="hidden" value="@Model.FilmId" name="FilmId" />
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" value="" id="CategoryId" name="CategoryId" />
+                        </div>
+                        <div class="form-group">
+                            <input type="hidden" value="" class="redirect-url" name="RedirectUrl" />
+                        </div>
+                        <div class="form-group">
+                            <center>
+                                <input type="submit" value="Delete" class="btn btn-group-justified btn-danger" />
+                            </center>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>    

@@ -1,0 +1,43 @@
+﻿@model Domain.Entity.Projection
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutBackOffice.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Projection</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Film.FilmTitle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Film.FilmTitle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Salle.NomSalle)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Salle.NomSalle)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateProjection)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateProjection)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "EditProjection", new { id = Model.ProjectionId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

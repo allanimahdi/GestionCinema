@@ -1,0 +1,89 @@
+﻿@model Web.Models.AdminViewModel
+
+@{
+    Layout = null;
+}
+
+
+
+<div id="Projection" class="col-lg-6">
+    <h2>ProjectionList</h2>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="dataTable_wrapper">
+                <table class="table table-striped table-bordered table-hover dataTable no-footer" id="dataTables-projection" role="grid" aria-describedby="dataTables-example_info">
+                    <thead>
+                        <tr>
+                            <th>
+                                Film
+                            </th>
+                            <th>
+                                Salle
+                            </th>
+                            <th>
+                                Date
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.Projections)
+                        {
+                            string color = "";
+                            if (item.DateProjection < DateTime.Now)
+                            {
+                                color = "color: red;opacity: 0.7;";
+                            }
+                            <tr style="@color">
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Film.FilmTitle)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Salle.NomSalle)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DateProjection)
+                                </td>
+                                <td style="padding:2px">
+                                    <a class="btn btn-group-sm btn-default" href="/Admin/EditProjection/@item.ProjectionId"><i class="fa fa-pencil fa-fw"></i></a>
+                                    <a class="btn btn-group-sm btn-primary" href="/Admin/DetailsProjection/@item.ProjectionId"><i class="fa fa-info-circle fa-fw"></i></a>
+                                    <a class="del-proj btn btn-group-sm btn-danger" url="/Admin/DeleteProjection/@item.ProjectionId" data-toggle="modal" data-target="#Modal-DeleteProjection" href="#"><i class=" fa fa-trash-o fa-fw"></i></a>
+                                </td>
+                            </tr>
+                        }
+                      
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+            <div class="well">
+
+                <a class="btn btn-success btn-lg btn-block" target="_blank" href="/Admin/CreateProjection"><i class="fa fa-plus-circle fa-fw"></i></a>
+
+            </div>
+        </div>
+        <!-- /.panel-body -->
+    </div>
+
+</div>
+    
+
+  <div class="modal fade danger" id="Modal-DeleteProjection" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div id="del-proj" class="modal-body">
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>

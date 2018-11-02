@@ -1,0 +1,32 @@
+﻿@if (@User != null)
+{
+    <script type="text/javascript" src="/Admin/Message"></script>
+   
+<li class="dropdown">
+    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+        <i class="fa fa-envelope fa-fw"></i>  <i class="fa fa-caret-down"></i>
+    </a>
+    <ul id="messages" class="dropdown-menu dropdown-messages">
+       
+    </ul>
+    <!-- /.dropdown-messages -->
+</li>
+<!-- /.dropdown -->
+    <script>
+        console.log(message);
+        for (var j = 0; j < message.length ; j++) {
+            var i=message[j];
+            console.log(i);
+       document.getElementById("messages").innerHTML += "<li>"+
+                "<a href=\"#\">" +
+                "<div><strong>" + i.Nom + "</strong><span class=\"pull-right text-muted\">" +
+                "<em>" + i.état + "</em></span></div>" +
+                "<div>"+i.Sujet+"</div>"+
+                "</a></li><li class=\"divider\"></li>";
+        }
+        document.getElementById("messages").innerHTML += "<li>" +
+            "<a class=\"text-center\" href=\"#dataTables-reclamation\"><strong>Read All Messages</strong>" +
+            "<i class=\"fa fa-angle-right\"></i></a>" +
+            "</li>";
+    </script>
+}

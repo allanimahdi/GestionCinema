@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Domain.Entity.Salle>
+
+@Html.Partial("Partials/_Menu")
+
+
+
+<div class="row">
+  
+    <div class="col-md-12 container" style="padding:50px">
+        @foreach (var item in Model)
+        {
+
+
+            <div class="blog_box">
+                <div class="blog_grid">
+                    <div class="col-md-4 " style="position:absolute;margin-left:60%;z-index:1000">
+                        <ul style="margin-top:50px;margin-bottom:250px" class="single_times">
+                            <h3>Opening <span class="opening">Hours</span></h3>
+                            <li><i class="calender"> </i><span class="week_class">Monday</span><div class="hours_class">h.8:00-h.23:00</div>  <div class="clear"></div></li>
+                            <li><i class="calender"> </i><span class="week_class">Tuesday</span><div class="hours_class">h.8:00-h.23:00</div>  <div class="clear"></div></li>
+                            <li><i class="calender"> </i><span class="week_class">Wednesday</span><div class="hours_class">h.8:00-h.23:00</div>  <div class="clear"></div></li>
+                            <li><i class="calender"> </i><span class="week_class">Thrusday</span><div class="hours_class">h.8:00-h.23:00</div>  <div class="clear"></div></li>
+                            <li><i class="calender"> </i><span class="week_class">Friday</span><div class="hours_class">h.8:00-h.23:00</div>  <div class="clear"></div></li>
+                            <li><i class="calender"> </i><span class="week_class">Saturday</span><div class="hours_class">h.8:00-h.23:00</div>  <div class="clear"></div></li>
+                            <li><i class="calender"> </i><span class="week_class">Sunday</span><div class="hours_class">h.8:00-h.23:00</div>  <div class="clear"></div></li>
+                        </ul>
+                    </div>
+                    <h3><a href="#">@Html.DisplayFor(modelItem => item.NomSalle) </a><p>@item.AdresseSalle.FormattedAdress</p></h3><i class="document3"> </i>
+
+                    <div class="singe_desc">
+                        <div class="well">
+                            <div class="wn" data-address="@item.AdresseSalle.Ville"></div>
+                        </div>
+                        <div class="comments">
+                            <div class="list-group">
+                                @foreach (var proj in item.Projections)
+                                {
+                                    <a href="/Home/ReservationProj?id=@proj.ProjectionId" class="list-group-item active">
+                                        <h4 class="list-group-item-heading">@proj.Film.FilmTitle</h4>
+                                        <p class="list-group-item-text">@proj.Film.FilmDescription</p>
+                                        <img src="/File?id=@proj.Film.Images[0].FileId" width="50" height="50" style="float:right;margin-top:-50px" />
+                                    </a>
+                                }
+                            </div>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+
+            </div>
+
+        }
+
+        <center>
+            <ul class="dc_pagination dc_paginationA dc_paginationA06">
+                <li><a href="#" class="current">Prev</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">...</a></li>
+                <li><a href="#">19</a></li>
+                <li><a href="#">20</a></li>
+                <li><a href="#" class="current">Next</a></li>
+            </ul>
+        </center>
+
+
+
+
+        <div class="clear"></div>
+    </div>
+
+</div>
+<script>
+    $(document).ready(function () {
+ 
+        $(".wn").each(function () {
+            $(this).whatsnearby({
+                zoom: 15,
+                width: "100%"
+            });
+        })
+  
+    });
+</script>

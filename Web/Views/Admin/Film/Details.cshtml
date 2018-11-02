@@ -1,0 +1,176 @@
+﻿@model Domain.Entity.Film
+
+@if (User != null)
+{
+    if (User.IsInRole("Admin"))
+    {
+        ViewBag.Title = "Details";
+        Layout = "~/Views/Shared/_LayoutBackOffice.cshtml";
+
+    }
+    else
+    {
+        ViewBag.Title = "Details";
+        Layout = null;
+    }
+
+
+}
+<div class="row">
+    <center><h1>@Html.DisplayFor(model => model.FilmTitle)</h1></center>
+    <hr />
+</div>
+<div class="row">
+    <div class="col-lg-8 col-md-8 col-sm-8">
+
+        <div class="row carousel-holder">
+
+
+            <div id="carousel-example-generic" class="carousel slide carousel-details" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    @{int i = 0; }
+                    @foreach (var item in Model.Images)
+                    {
+                        if (i == 0)
+                        {
+                            <li data-target="#carousel-example-generic" data-slide-to="@i" class="active"></li>
+
+                        }
+                        else
+                        {
+
+                            <li data-target="#carousel-example-generic" data-slide-to="@i" class=""></li>
+
+                        }
+
+                        i += 1;
+                    }
+                </ol>
+                <div class="carousel-inner">
+                    @{int j = 0; }
+                    @foreach (var item in Model.Images)
+                    {
+                        if (j == 0)
+                        {
+                            <div class="item active">
+                                <img class="slide-image" src="~/File?id=@item.FileId" alt="@item.FileName">
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="item">
+                                <img class="slide-image" src="~/File?id=@item.FileId" alt="@item.FileName">
+                            </div>
+                        }
+
+                        j += 1;
+                    }
+
+                </div>
+                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+            </div>
+
+
+        </div>
+
+    </div>
+    <div class="col-lg-4 col-md-4 col-sm-4">
+        <div class="thumbnail" >
+            @if (Model.Images.Count >0)
+            {
+                <img  src="~/File?id=@Model.Images[0].FileId" alt="avatar" />
+
+            }
+            else
+            {
+                <img src="http://placehold.it/320x150" alt="">
+            }
+
+            <div class="caption">
+                <h4 class="pull-right">@Model.Categories.Count</h4>
+                <h4>
+                    <a href="#">Categories</a>
+                </h4>
+
+                @foreach (var cat in Model.Categories)
+                {
+                    <a href="#">@(cat.CategoryName)</a>
+                }
+
+            </div>
+            <div class="ratings">
+                <p class="pull-right">@Model.FilmNote reviews</p>
+                <p>
+                   
+                    @for (int k = 0; k < Model.FilmNote; k++)
+                    {
+                        <span class="glyphicon glyphicon-star"></span>
+                       
+                    }
+                    @for (int l = 5; l > Model.FilmNote; l--)
+                    {
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    }
+
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row">
+
+    <div class="col-sm-12 col-lg-12 col-md-12">
+        <div id="" class="panel panel-default">
+            <div class="panel-heading">
+                @Html.DisplayNameFor(model => model.FilmDescription)
+            </div>
+            <div class="panel-body" style="overflow:scroll;min-height:200px">
+                @Html.DisplayFor(model => model.FilmDescription)
+            </div>
+          
+            <div class="panel-footer">
+                @if (User != null)
+                {
+                    if (User.IsInRole("Admin"))
+                    {
+                        <a href="/Admin" class="btn btn-warning btn-circle btn-group-sm">
+                            <i class="fa fa-times"></i>
+                        </a>
+
+                        <a class="btn btn-group-sm btn-default" href="/Admin/EditFilm/@Model.FilmId"><i class="fa fa-pencil fa-fw"></i></a>
+
+                    }
+
+                }
+                
+
+            </div>
+        </div>
+
+
+
+
+    </div>
+
+
+
+
+
+  
+
+
+
+
+
+
+
+</div>
+
+

@@ -1,0 +1,19 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = null;
+}
+@if (ViewBag.alert!=null)
+{
+    <div class="alert alert-warning">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Warning!</strong> @ViewBag.alert
+    </div>
+}
+@if (ViewBag.success != null)
+{
+    <div class="alert alert-success">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Success!</strong> @ViewBag.success
+    </div>
+}
+@Html.Action("Event","Home",null);

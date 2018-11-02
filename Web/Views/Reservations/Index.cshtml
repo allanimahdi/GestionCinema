@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Domain.Entity.Reservation>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Projection.ProjectionId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.Username)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Projection.ProjectionId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Username)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ReservationId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ReservationId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ReservationId })
+        </td>
+    </tr>
+}
+
+</table>

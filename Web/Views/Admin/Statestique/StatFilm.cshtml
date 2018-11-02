@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "StatFilm";
+    Layout = "~/Views/Shared/_LayoutBackOffice.cshtml";
+}
+
+<h2>StatFilm</h2>
+<div class="row">
+    @Html.Action("StatFilmParCat");
+    @Html.Action("StatFilmParProj");
+    @Html.Action("StatFilmParNote");
+</div>

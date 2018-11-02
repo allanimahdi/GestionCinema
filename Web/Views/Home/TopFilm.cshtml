@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Domain.Entity.Film>
+<div class="row price_plans">
+    <h3 class="m_2">Top Films</h3>
+    <div class="price_plans_box">
+        @{ int cout = 0; }
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <a href="#">
+                    <ul class="spinning">
+                        <li class="live"> <span class="m_1">@item.FilmTitle</span></li>
+                        <li class="room">
+                            <div id="f-@item.FilmId" class="ratings">
+
+                                <p>
+                                    @{int index = 0;}
+                                    @for (int i = 0; i < item.FilmNote; i++)
+                                    {
+                                        <span class="glyphicon glyphicon-star"></span>
+                                        index = i + 1;
+                                    }
+                                    @for (int i = 5; i >= index; i--)
+                                    {
+                                        <span class="glyphicon glyphicon-star-empty"></span>
+                                    }
+
+                                </p>
+                            </div>
+                        </li>
+                        <li class="clear"></li>
+                    </ul>
+
+                    <div class="view view-fifth">
+                        <script>
+
+                        </script>
+                        <img src="/File?id=@item.Images[0].FileId" alt="@item.Images[0].FileName" class="img-responsive">
+                        <div class="mask">
+                            <a data-toggle="modal" url="/Admin/DetailsFilm/@item.FilmId" data-target="#Modal-DetailFilm" href="#" class="film-detail info">Plus de détails</a>
+                        </div>
+                    </div>
+                </a>
+            </div>
+                                        cout++;
+                                        if (cout == 3)
+                                        {
+                                            cout = 0;
+                                            <div class="clear"></div>
+                                            <br />
+                                            }
+
+                                        }
+
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+     
+
+
+
+        <div class="clear"></div>
+    </div>
+</div>

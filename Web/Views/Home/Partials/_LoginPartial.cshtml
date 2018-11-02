@@ -1,0 +1,30 @@
+﻿
+@if (@User != null)
+{
+
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+
+            <a href="/@User.roles[0]">
+                <i class="fa fa-home"></i>
+                Hello @User.FirstName @User.LastName
+            </a>
+
+          
+        </li>
+        <li>
+            <a href="/Account/LogOut">
+                <i class="fa fa-lock"></i>
+                se déconnecter
+            </a>
+        </li>
+    </ul>
+
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <a  class="popup-with-zoom-anim" href="#small-dialog"><li style="display:inline" class="price_but">Login</li></a>
+        <a class="popup-with-zoom-anim" href="#small-dialog"><li style="display:inline" class="price_but">Register</li></a>
+    </ul>
+}

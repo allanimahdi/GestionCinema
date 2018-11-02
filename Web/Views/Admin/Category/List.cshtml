@@ -1,0 +1,89 @@
+﻿@model Web.Models.AdminViewModel
+
+@{
+    Layout = null;
+}
+@helper CatTag(string classe,int index, string name, int id)
+{
+
+
+    <tr class="@classe">
+        <td>
+            @index
+        </td>
+        <td>
+           @name
+        </td>
+        <td >
+            <a class="btn btn-group-sm btn-default" href="/Admin/EditCategory/@id"><i class="fa fa-pencil fa-fw"></i></a>
+            <a class="btn btn-group-sm btn-primary" href="/Admin/DetailsCategory/@id"><i class="fa fa-info-circle fa-fw"></i></a>
+            <a class="del-cat btn btn-group-sm btn-danger"  data-toggle="modal" url="/Admin/DeleteCategory/@id" data-target="#Modal-DeleteCategory" href="#"><i class=" fa fa-trash-o fa-fw"></i></a>
+        </td>
+    </tr>
+
+}
+<div id="Category" class="col-lg-6">
+    <h2>CategoryList</h2>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a style="margin-left:90%;" class="btn btn-success" href="/Admin/CreateCategory"><i class="fa fa-plus-circle fa-fw"></i></a>
+          
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Category</th>
+                            <th></th>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int i= 1; int r = 0; List<string> cl = new List<string> { "success", "info", "warning", "danger", "default" }; }
+                        @foreach (var item in Model.Categories)
+                        { 
+                         
+                            @CatTag(cl[r], i,item.CategoryName, item.CategoryId);
+                            i++;
+                            r++;
+                            if (r==5)
+                            {
+                                r = 0;
+                            }
+                        }
+ 
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+    <!-- /.panel -->
+</div>
+
+   
+<div class="modal fade danger" id="Modal-DeleteCategory" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div id="del-cat" class="modal-body">
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>
+  <script>
+
+  </script>  
+ 
+
+

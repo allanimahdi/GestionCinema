@@ -1,0 +1,14 @@
+﻿@model List<dynamic>
+@{
+    ViewBag.Title = "StatFilm";
+    Layout = null;
+}
+<script src="/Scripts/Admin/raphael-min.js"></script>
+<script src="/Scripts/Admin/morris.min.js"></script>
+<script src="/Scripts/Admin/morris-data.js"></script>
+<div class="row">
+    <div class="col-md-6">@Html.Action("StatFilmParNote");</div>
+    <div class="col-md-6">@Html.Action("StatFilmParProj");</div>
+   
+   
+</div>

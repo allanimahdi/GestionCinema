@@ -1,0 +1,86 @@
+﻿@model Web.Models.AdminViewModel
+
+@{
+    Layout = null;
+}
+@helper SalleTag(string classe, int index, string name,string formattedAdresse ,int id)
+{
+
+
+    <tr class="@classe">
+        <td>
+            @index
+        </td>
+        <td>
+            @name
+        </td>
+        <td>
+            @formattedAdresse
+        </td>
+        <td >
+            <a class="btn btn-group-sm btn-default" href="/Admin/EditSalle/@id"><i class="fa fa-pencil fa-fw"></i></a>
+            <a class="btn btn-group-sm btn-primary" href="/Admin/DetailsSalle/@id"><i class="fa fa-info-circle fa-fw"></i></a>
+            <a class="del-salle btn btn-group-sm btn-danger" url="/Admin/DeleteSalle/@id" data-toggle="modal" data-target="#Modal-DeleteSalle" href="#"><i class=" fa fa-trash-o fa-fw"></i></a>
+        </td>
+    </tr>
+
+}
+<div id="Salle" class="col-lg-6">
+    <h2>SalleList</h2>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <a style="margin-left:90%;" class="btn btn-success" href="/Admin/CreateSalle"><i class="fa fa-plus-circle fa-fw"></i></a>
+
+        </div>
+        <!-- /.panel-heading -->
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Salle</th>
+                            <th>Adresse</th>
+                            <th></th>
+
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{int i = 1; int r = 0; List<string> cl = new List<string> { "success", "info", "warning", "danger", "default" }; }
+                        @foreach (var item in Model.Salles)
+                        {
+
+                            @SalleTag(cl[r], i, item.NomSalle,item.AdresseSalle.FormattedAdress ,item.SalleId);
+                            i++;
+                            r++;
+                            if (r == 5)
+                            {
+                                r = 0;
+                            }
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+            <!-- /.table-responsive -->
+        </div>
+        <!-- /.panel-body -->
+    </div>
+
+</div>
+
+<div class="modal fade danger" id="Modal-DeleteSalle" role="dialog">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div id="del-salle" class="modal-body">
+            </div>
+            <div class="modal-footer">
+
+            </div>
+        </div>
+    </div>
+</div>

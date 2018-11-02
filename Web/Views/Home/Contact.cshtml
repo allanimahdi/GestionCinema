@@ -1,0 +1,58 @@
+﻿
+@Html.Partial("Partials/_Menu")
+<div class="main">
+    <div class="about_banner_img">
+        <img width="100%" height="500" src="/images/url.jpg" alt="" />
+        <div class="opening_hours">
+            <ul class="times">
+                <h3>Opening <span class="opening">Hours</span></h3>
+                <li><i class="calender"> </i><span class="week">Monday</span><div class="hours">h.8:00-h.23:00</div>  <div class="clear"></div></li>
+                <li><i class="calender"> </i><span class="week">Tuesday</span><div class="hours">h.8:00-h.23:00</div>  <div class="clear"></div></li>
+                <li><i class="calender"> </i><span class="week">Wednesday</span><div class="hours">h.8:00-h.23:00</div>  <div class="clear"></div></li>
+                <li><i class="calender"> </i><span class="week">Thrusday</span><div class="hours">h.8:00-h.23:00</div>  <div class="clear"></div></li>
+                <li><i class="calender"> </i><span class="week">Friday</span><div class="hours">h.8:00-h.23:00</div>  <div class="clear"></div></li>
+                <li><i class="calender"> </i><span class="week">Saturday</span><div class="hours">h.8:00-h.23:00</div>  <div class="clear"></div></li>
+                <li><i class="calender"> </i><span class="week">Sunday</span><div class="hours">h.8:00-h.23:00</div>  <div class="clear"></div></li>
+               
+                <h4>Enjoy it!</h4>
+            </ul>
+        </div>
+    </div>
+    <div class="about_banner_wrap">
+        <div class="about_banner_wrap">
+            <h1 class="m_11">Contact</h1>
+        </div>
+        <div class="border"> </div>
+        <div class="rwo contact">
+            <div class="container">
+                <div class="col-md-8 contact-top">
+                    <h3>Send us a reclamation</h3>
+                    <p class="contact_msg"></p>
+                    <form method="post" action="/Home/Reclamation">
+                        <div class="to">
+                            <input name="name" required type="text" class="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}">
+                            <input name="email" required type="text" class="text" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}" style="margin-left:20px">
+                           
+                        </div>
+                        <div class="text">
+                            <textarea name="sujet" required value="Message:" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message';}">Message:</textarea>
+                        </div>
+                        <div class="form-submit1">
+                            <input name="submit" type="submit" id="submit" value="Submit Your Message"><br>
+                            <p class="m_msg">Make sure you put a valid email</p>
+                        </div>
+                        <div class="clear"></div>
+                    </form>
+                </div>
+                <div class="col-md-4 contact-top_right">
+                    <h3>contact info</h3>
+                    <p>diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis.</p>
+                    <ul class="contact_info">
+                        <li><i class="mobile"> </i><span>+1-900-235-2456</span></li>
+                        <li><i class="message"> </i><span class="msg">info(at)gym.com</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
