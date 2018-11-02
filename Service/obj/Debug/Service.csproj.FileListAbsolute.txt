@@ -1,0 +1,44 @@
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Service\bin\Debug\Service.dll.config
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Service\bin\Debug\Service.dll
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Service\bin\Debug\Service.pdb
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Service\bin\Debug\Data.dll
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Service\bin\Debug\Domain.dll
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Service\bin\Debug\EntityFramework.dll
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Service\bin\Debug\EntityFramework.SqlServer.dll
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Service\bin\Debug\Data.pdb
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Service\bin\Debug\Domain.pdb
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Service\bin\Debug\EntityFramework.xml
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Service\bin\Debug\EntityFramework.SqlServer.xml
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Service\obj\Debug\Service.dll
+C:\wamp\www\GitHub\ASP.NET\Gestion De Cinema\Service\obj\Debug\Service.pdb
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Service\bin\Debug\Service.dll.config
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Service\bin\Debug\Service.dll
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Service\bin\Debug\Service.pdb
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Service\bin\Debug\Data.dll
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Service\bin\Debug\Domain.dll
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Service\bin\Debug\EntityFramework.dll
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Service\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Service\bin\Debug\Data.pdb
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Service\bin\Debug\Domain.pdb
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Service\bin\Debug\EntityFramework.xml
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Service\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Service\obj\Debug\Service.csprojResolveAssemblyReference.cache
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Service\obj\Debug\Service.dll
+C:\Users\mednaceur\Documents\Visual Studio 2015\Projects\Gestion De Cinema\Service\obj\Debug\Service.pdb
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Service\bin\Debug\Service.dll
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Service\bin\Debug\Service.pdb
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Service\bin\Debug\Data.dll
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Service\bin\Debug\Domain.dll
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Service\bin\Debug\EntityFramework.dll
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Service\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Service\bin\Debug\Data.pdb
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Service\bin\Debug\Data.dll.config
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Service\bin\Debug\Domain.pdb
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Service\bin\Debug\EntityFramework.xml
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Service\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Service\obj\Debug\Service.csprojAssemblyReference.cache
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Service\obj\Debug\Service.csproj.CoreCompileInputs.cache
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Service\obj\Debug\Service.csproj.CopyComplete
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Service\obj\Debug\Service.dll
+C:\Users\mednaceur\Desktop\Gestion De Cinema\Service\obj\Debug\Service.pdb
